@@ -8,10 +8,10 @@
         <h3 class="card-title align-items-start flex-column">
             <span class="card-label fw-bold fs-3 mb-1">Promo List</span>
         </h3>
-        <!--begin::Filter menu-->
-        <div class="card-toolbar m-0">
+        <!--begin::Actions menu-->
+        <div class="card-toolbar m-0 gap-4">
             <!--begin::Menu toggle-->
-            <a href="#" class="btn btn-sm fw-bold btn-primary" data-kt-menu-trigger="click"
+            <a href="#" class="btn btn-sm fw-bold btn-primary d-flex align-items-center" data-kt-menu-trigger="click"
                 data-kt-menu-placement="bottom-end">
                 <!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
                 <span class="svg-icon svg-icon-6 svg-icon-muted me-1">
@@ -40,7 +40,7 @@
                     <!--begin::Input group-->
                     <div class="mb-5">
                         <!--begin::Label-->
-                        <label class="form-label fw-semibold">Country:</label>
+                        <label class="form-label">Country:</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <div>
@@ -56,7 +56,7 @@
                     <!--begin::Input group-->
                     <div class="mb-5">
                         <!--begin::Label-->
-                        <label class="form-label fw-semibold">Status:</label>
+                        <label class="form-label">Status:</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <div>
@@ -72,7 +72,7 @@
                     <!--begin::Input group-->
                     <div class="mb-5">
                         <!--begin::Label-->
-                        <label class="form-label fw-semibold">Month:</label>
+                        <label class="form-label">Month:</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <div>
@@ -88,7 +88,7 @@
                     <!--begin::Input group-->
                     <div class="mb-5">
                         <!--begin::Label-->
-                        <label class="form-label fw-semibold">Year:</label>
+                        <label class="form-label">Year:</label>
                         <!--end::Label-->
                         <!--begin::Input-->
                         <div>
@@ -112,8 +112,15 @@
                 <!--end::Form-->
             </div>
             <!--end::Menu 1-->
+            <a href="#" class="btn btn-sm fw-bold btn-success d-flex align-items-center" data-bs-toggle="modal"
+                data-bs-target="#kt_modal_promo">
+                <span class="svg-icon svg-icon-5 svg-icon-muted me-1">
+                    <i class="iconify" data-icon="mdi-plus-thick"></i>
+                </span>
+                Add
+            </a>
         </div>
-        <!--end::Filter menu-->
+        <!--end::Actions menu-->
     </div>
     <!--end::Header-->
     <!--begin::Body-->
@@ -124,12 +131,12 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th class="text-center">ID</th>
                         <th>Name</th>
-                        <th>Country</th>
-                        <th>Status</th>
+                        <th class="text-center">Country</th>
+                        <th class="text-center">Status</th>
                         <th>Time</th>
-                        <th>Action</th>
+                        <th class="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -142,7 +149,24 @@
                         <td class="text-center">Not Publish</td>
                         <td>08 Jul 2020 20:09</td>
                         <td class="text-center">
-                            <a href="javascript:deletePromo(1)">Delete</a>
+                            <a href="#" class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm">
+                                <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
+                                <span class="svg-icon svg-icon-3">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z"
+                                            fill="currentColor"></path>
+                                        <path opacity="0.5"
+                                            d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z"
+                                            fill="currentColor"></path>
+                                        <path opacity="0.5"
+                                            d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z"
+                                            fill="currentColor"></path>
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
+                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -154,7 +178,24 @@
                         <td class="text-center">Not Publish</td>
                         <td>08 Jul 2020 20:10</td>
                         <td class="text-center">
-                            <a href="javascript:deletePromo(2)">Delete</a>
+                            <a href="#" class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm">
+                                <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
+                                <span class="svg-icon svg-icon-3">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z"
+                                            fill="currentColor"></path>
+                                        <path opacity="0.5"
+                                            d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z"
+                                            fill="currentColor"></path>
+                                        <path opacity="0.5"
+                                            d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z"
+                                            fill="currentColor"></path>
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
+                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -166,7 +207,24 @@
                         <td class="text-center">Not Publish</td>
                         <td>31 Aug 2020 00:11</td>
                         <td class="text-center">
-                            <a href="javascript:deletePromo(3)">Delete</a>
+                            <a href="#" class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm">
+                                <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
+                                <span class="svg-icon svg-icon-3">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z"
+                                            fill="currentColor"></path>
+                                        <path opacity="0.5"
+                                            d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z"
+                                            fill="currentColor"></path>
+                                        <path opacity="0.5"
+                                            d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z"
+                                            fill="currentColor"></path>
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
+                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -178,7 +236,24 @@
                         <td class="text-center">Not Publish</td>
                         <td>31 Aug 2020 00:12</td>
                         <td class="text-center">
-                            <a href="javascript:deletePromo(4)">Delete</a>
+                            <a href="#" class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm">
+                                <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
+                                <span class="svg-icon svg-icon-3">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z"
+                                            fill="currentColor"></path>
+                                        <path opacity="0.5"
+                                            d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z"
+                                            fill="currentColor"></path>
+                                        <path opacity="0.5"
+                                            d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z"
+                                            fill="currentColor"></path>
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
+                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -190,7 +265,24 @@
                         <td class="text-center">Publish</td>
                         <td>06 Jan 2022 14:19</td>
                         <td class="text-center">
-                            <a href="javascript:deletePromo(6)">Delete</a>
+                            <a href="#" class="btn btn-icon btn-bg-light btn-active-color-danger btn-sm">
+                                <!--begin::Svg Icon | path: icons/duotune/general/gen027.svg-->
+                                <span class="svg-icon svg-icon-3">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M5 9C5 8.44772 5.44772 8 6 8H18C18.5523 8 19 8.44772 19 9V18C19 19.6569 17.6569 21 16 21H8C6.34315 21 5 19.6569 5 18V9Z"
+                                            fill="currentColor"></path>
+                                        <path opacity="0.5"
+                                            d="M5 5C5 4.44772 5.44772 4 6 4H18C18.5523 4 19 4.44772 19 5V5C19 5.55228 18.5523 6 18 6H6C5.44772 6 5 5.55228 5 5V5Z"
+                                            fill="currentColor"></path>
+                                        <path opacity="0.5"
+                                            d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4V4H9V4Z"
+                                            fill="currentColor"></path>
+                                    </svg>
+                                </span>
+                                <!--end::Svg Icon-->
+                            </a>
                         </td>
                     </tr>
                 </tbody>
@@ -202,4 +294,74 @@
     <!--begin::Body-->
 </div>
 <!--end::Main-->
+
+<!--begin::Modal - Add Promo-->
+<div class="modal fade" tabindex="-1" id="kt_modal_promo">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Add Promo</h3>
+                <!--begin::Close-->
+                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
+                    aria-label="Close">
+                    <span class="svg-icon svg-icon-1">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                transform="rotate(-45 6 17.3137)" fill="currentColor"></rect>
+                            <rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)"
+                                fill="currentColor"></rect>
+                        </svg>
+                    </span>
+                </div>
+                <!--end::Close-->
+            </div>
+            <div class="modal-body">
+                <div class="mb-5">
+                    <label for="promo_name" class="required form-label">Promo Name</label>
+                    <input type="text" id="promo_name" class="form-control" placeholder="Promo Name" />
+                </div>
+                <div class="row mb-5">
+                    <div class="col-md 6">
+                        <label for="select_country" class="required form-label">Country</label>
+                        <select id="select_country" class="form-select" name="select_country">
+                            <option value="1">All Country</option>
+                            <option value="2">Indonesia</option>
+                            <option value="3">Malaysia</option>
+                        </select>
+                    </div>
+                    <div class="col-md 6">
+                        <label for="select_status" class="required form-label">Status</label>
+                        <select id="select_status" class="form-select" name="select_status">
+                            <option value="2">Publish</option>
+                            <option value="3">Not Publish</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="mb-5">
+                    <label for="duration" class="required form-label">Duration</label>
+                    <input type="text" id="duration" class="form-control" placeholder="Duration in Days" />
+                </div>
+                <div class="row mb-5">
+                    <div class="col-md 6">
+                        <label for="start_time" class="required form-label">Start Time</label>
+                        <input type="datetime-local" id="start_time" name="start_time" class="form-control">
+                    </div>
+                    <div class="col-md 6">
+                        <label for="end_time" class="required form-label">End Time</label>
+                        <input type="datetime-local" id="end_time" name="end_time" class="form-control">
+                    </div>
+                </div>
+                <div class="mb-5">
+                    <label for="capacity" class="required form-label">Capacity</label>
+                    <input type="text" id="capacity" class="form-control" placeholder="Capacity" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--end::Modal - Add Promo-->
 @endsection

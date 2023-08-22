@@ -1,5 +1,6 @@
 <!--begin::Menu-->
-<div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
+<div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu" data-kt-menu="true"
+    data-kt-menu-expand="false">
     <!--begin:Menu item-->
     <div class="menu-item">
         <!--begin:Menu link-->
@@ -34,9 +35,12 @@
     <!--begin:Menu item-->
     <div class="menu-item">
         <!--begin:Menu link-->
-        <a class="menu-link {{ (request()->is('retail/manages/retail_merchant')) ? 'active' : '' }}" href="{{ route('retail.manages.retail_merchant') }}">
-            <span class="menu-bullet">
-                <span class="bullet bullet-dot"></span>
+        <a class="menu-link {{ (request()->is('retail/manages/retail_merchant')) ? 'active' : '' }}"
+            href="{{ route('retail.manages.retail_merchant') }}">
+            <span class="menu-icon">
+                <span class="svg-icon svg-icon-2">
+                    <i class="iconify" data-icon="mdi-account-star"></i>
+                </span>
             </span>
             <span class="menu-title">Retail Merchant</span>
         </a>
@@ -46,9 +50,12 @@
     <!--begin:Menu item-->
     <div class="menu-item">
         <!--begin:Menu link-->
-        <a class="menu-link {{ (request()->is('retail/manages/ads_blast')) ? 'active' : '' }}" href="{{ route('retail.manages.ads_blast') }}">
-            <span class="menu-bullet">
-                <span class="bullet bullet-dot"></span>
+        <a class="menu-link {{ (request()->is('retail/manages/ads_blast')) ? 'active' : '' }}"
+            href="{{ route('retail.manages.ads_blast') }}">
+            <span class="menu-icon">
+                <span class="svg-icon svg-icon-2">
+                    <i class="iconify" data-icon="mdi-archive"></i>
+                </span>
             </span>
             <span class="menu-title">Ads Blast</span>
         </a>
@@ -70,12 +77,14 @@
         <!--begin:Menu link-->
         <a class="menu-link {{ (request()->is('retail/users')) ? 'active' : '' }}" href="{{ route('retail.users') }}">
             {{-- <span class="menu-icon">
-                    <span class="svg-icon svg-icon-2">
+                <span class="svg-icon svg-icon-2">
 
-                    </span>
-                </span> --}}
-            <span class="menu-bullet">
-                <span class="bullet bullet-dot"></span>
+                </span>
+            </span> --}}
+            <span class="menu-icon">
+                <span class="svg-icon svg-icon-2">
+                    <i class="iconify" data-icon="mdi-account"></i>
+                </span>
             </span>
             <span class="menu-title">Users</span>
         </a>
@@ -95,9 +104,12 @@
     <!--begin:Menu item-->
     <div class="menu-item">
         <!--begin:Menu link-->
-        <a class="menu-link {{ (request()->is('retail/transactions/pre_allocation')) ? 'active' : '' }}" href="{{ route('retail.transactions.pre_allocation') }}">
-            <span class="menu-bullet">
-                <span class="bullet bullet-dot"></span>
+        <a class="menu-link {{ (request()->is('retail/transactions/pre_allocation')) ? 'active' : '' }}"
+            href="{{ route('retail.transactions.pre_allocation') }}">
+            <span class="menu-icon">
+                <span class="svg-icon svg-icon-2">
+                    <i class="iconify" data-icon="mdi-cash-marker"></i>
+                </span>
             </span>
             <span class="menu-title">Pre Allocation</span>
         </a>
@@ -107,9 +119,12 @@
     <!--begin:Menu item-->
     <div class="menu-item">
         <!--begin:Menu link-->
-        <a class="menu-link {{ (request()->is('retail/transactions/sales_order')) ? 'active' : '' }}" href="{{ route('retail.transactions.sales_order') }}">
-            <span class="menu-bullet">
-                <span class="bullet bullet-dot"></span>
+        <a class="menu-link {{ (request()->is('retail/transactions/sales_order')) ? 'active' : '' }}"
+            href="{{ route('retail.transactions.sales_order') }}">
+            <span class="menu-icon">
+                <span class="svg-icon svg-icon-2">
+                    <i class="iconify" data-icon="mdi-cart-plus"></i>
+                </span>
             </span>
             <span class="menu-title">Sales Order</span>
         </a>
@@ -129,9 +144,12 @@
     <!--begin:Menu item-->
     <div class="menu-item">
         <!--begin:Menu link-->
-        <a class="menu-link {{ (request()->is('retail/payouts/withdrawal')) ? 'active' : '' }}" href="{{ route('retail.payouts.withdrawal') }}">
-            <span class="menu-bullet">
-                <span class="bullet bullet-dot"></span>
+        <a class="menu-link {{ (request()->is('retail/payouts/withdrawal')) ? 'active' : '' }}"
+            href="{{ route('retail.payouts.withdrawal') }}">
+            <span class="menu-icon">
+                <span class="svg-icon svg-icon-2">
+                    <i class="iconify" data-icon="mdi-arrow-down-bold-hexagon-outline"></i>
+                </span>
             </span>
             <span class="menu-title">Withdrawal</span>
         </a>

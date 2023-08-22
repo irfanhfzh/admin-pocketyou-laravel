@@ -1,24 +1,25 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Account\UsersAccountController;
-use App\Http\Controllers\Regular\RegularDashboardController;
-use App\Http\Controllers\Regular\RegularUsersController;
+use App\Http\Controllers\Auth\SignInController;
+use App\Http\Controllers\Account\AccountIssuesController;
+use App\Http\Controllers\Account\AccountProfileController;
 use App\Http\Controllers\Regular\RegularManagesController;
 use App\Http\Controllers\Regular\RegularPayoutsController;
+use App\Http\Controllers\Regular\RegularDashboardController;
 use App\Http\Controllers\Regular\RegularLogisticsController;
 use App\Http\Controllers\Regular\RegularTransactionsController;
-use App\Http\Controllers\Vip\VipDashboardController;
+use App\Http\Controllers\Regular\RegularUsersController;
 use App\Http\Controllers\Vip\VipUsersController;
 use App\Http\Controllers\Vip\VipManagesController;
 use App\Http\Controllers\Vip\VipPayoutsController;
+use App\Http\Controllers\Vip\VipDashboardController;
 use App\Http\Controllers\Vip\VipTransactionsController;
-use App\Http\Controllers\Retail\RetailUsersController;
 use App\Http\Controllers\Retail\RetailManagesController;
 use App\Http\Controllers\Retail\RetailPayoutsController;
+use App\Http\Controllers\Retail\RetailUsersController;
 use App\Http\Controllers\Retail\RetailDashboardController;
 use App\Http\Controllers\Retail\RetailTransactionsController;
-use App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,12 +37,12 @@ Route::get('/', function(){
 });
 
 // Auth
-Route::get('/sign_in', [UsersController::class, 'index'])->name('sign_in');
+Route::get('/sign_in', [SignInController::class, 'index'])->name('sign_in');
 
 // Account
 Route::prefix('account')->group(function() {
-    Route::get('/profile', [UsersAccountController::class, 'profile'])->name('account.profile');
-    Route::get('/issues', [UsersAccountController::class, 'issues'])->name('account.issues');
+    Route::get('/profile', [AccountProfileController::class, 'profile'])->name('account.profile');
+    Route::get('/issues', [AccountIssuesController::class, 'issues'])->name('account.issues');
 });
 
 // Regular

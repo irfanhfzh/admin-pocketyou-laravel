@@ -9,7 +9,7 @@
             <img alt="Logo" src="{{ asset('/') }}media/logos/brand.png"
                 class="h-45px mb-4 app-sidebar-logo-default theme-light-show" />
             <img alt="Logo" src="{{ asset('/') }}media/logos/brand.png"
-                class="h-25px app-sidebar-logo-default theme-dark-show" />
+                class="h-45px mb-4 app-sidebar-logo-default theme-dark-show" />
             <img alt="Logo" src="{{ asset('/') }}media/logos/favicon.png" class="h-30px app-sidebar-logo-minimize" />
         </a>
         <!--end::Logo image-->
