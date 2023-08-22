@@ -12,6 +12,7 @@ class RegularPayoutsController extends Controller
         $data = [
             "title" => "Payouts",
             "text" => "Payouts / Withdrawal",
+            "page_title" => "Withdrawal",
         ];
 
         return view('pages.regular.payouts.withdrawal', $data);
@@ -22,6 +23,7 @@ class RegularPayoutsController extends Controller
         $data = [
             "title" => "Payouts",
             "text" => "Payouts / Redeem",
+            "page_title" => "Redeem",
         ];
 
         return view('pages.regular.payouts.redeem', $data);

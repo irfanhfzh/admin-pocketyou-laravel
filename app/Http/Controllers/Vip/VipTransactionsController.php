@@ -11,7 +11,8 @@ class VipTransactionsController extends Controller
     {
         $data = [
             "title" => "Transactions",
-            "text" => "Pre Allocation"
+            "text" => "Pre Allocation",
+            "page_title" => "Pre Allocation",
         ];
 
         return view('pages.vip.transactions.pre_allocation', $data);
@@ -21,7 +22,8 @@ class VipTransactionsController extends Controller
     {
         $data = [
             "title" => "Transactions",
-            "text" => "Sales Order"
+            "text" => "Sales Order",
+            "page_title" => "Sales Order",
         ];
 
         return view('pages.vip.transactions.sales_order', $data);
@@ -31,7 +33,8 @@ class VipTransactionsController extends Controller
     {
         $data = [
             "title" => "Transactions",
-            "text" => "Voucher Reward"
+            "text" => "Voucher Reward",
+            "page_title" => "Voucher Reward",
         ];
 
         return view('pages.vip.transactions.voucher_reward', $data);
@@ -41,7 +44,8 @@ class VipTransactionsController extends Controller
     {
         $data = [
             "title" => "Transactions",
-            "text" => "Send Reward"
+            "text" => "Send Reward",
+            "page_title" => "Send Reward",
         ];
 
         return view('pages.vip.transactions.send_reward', $data);

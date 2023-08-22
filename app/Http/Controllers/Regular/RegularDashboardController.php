@@ -11,7 +11,8 @@ class RegularDashboardController extends Controller
     {
         $data = [
             "title" => "Dashboard",
-            "text" => "Dashboard"
+            "text" => "Dashboard",
+            "page_title" => "Dashboard",
         ];
 
         return view('pages.regular.dashboard.index', $data);

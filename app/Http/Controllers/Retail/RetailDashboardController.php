@@ -11,7 +11,8 @@ class RetailDashboardController extends Controller
     {
         $data = [
             "title" => "Dashboard",
-            "text" => "Dashboard"
+            "text" => "Dashboard",
+            "page_title" => "Dashboard",
         ];
 
         return view('pages.retail.dashboard.index', $data);

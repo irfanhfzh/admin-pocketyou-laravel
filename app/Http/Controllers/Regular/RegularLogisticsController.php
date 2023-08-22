@@ -12,6 +12,7 @@ class RegularLogisticsController extends Controller
         $data = [
             "title" => "Logistics",
             "text" => "Logistics / Product Order",
+            "page_title" => "Product Order",
         ];
 
         return view('pages.regular.logistics.product_order', $data);
@@ -22,6 +23,7 @@ class RegularLogisticsController extends Controller
         $data = [
             "title" => "Logistics",
             "text" => "Logistics / Redeem",
+            "page_title" => "Redeem",
         ];
 
         return view('pages.regular.logistics.redeem', $data);

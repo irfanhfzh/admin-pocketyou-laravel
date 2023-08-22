@@ -11,7 +11,8 @@ class VipUsersController extends Controller
     {
         $data = [
             "title" => "Users",
-            "text" => "Users"
+            "text" => "Users",
+            "page_title" => "Users",
         ];
 
         return view('pages.vip.users.index', $data);

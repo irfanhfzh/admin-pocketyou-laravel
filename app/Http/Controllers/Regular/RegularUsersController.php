@@ -12,6 +12,7 @@ class RegularUsersController extends Controller
         $data = [
             "title" => "Users",
             "text" => "Users",
+            "page_title" => "Users"        
         ];
 
         return view('pages.regular.users.index', $data);
@@ -22,6 +23,7 @@ class RegularUsersController extends Controller
         $data = [
             "title" => "Users",
             "text" => "Users / Pre Purchase",
+            "page_title" => "Pre Purchase",
         ];
 
         return view('pages.regular.users.pre_purchase', $data);
@@ -32,6 +34,7 @@ class RegularUsersController extends Controller
         $data = [
             "title" => "Users",
             "text" => "Users / Incoming Funds",
+            "page_title" => "Incoming Funds",
         ];
 
         return view('pages.regular.users.incoming_funds', $data);
@@ -42,6 +45,7 @@ class RegularUsersController extends Controller
         $data = [
             "title" => "Users",
             "text" => "Users / Outcomes Funds",
+            "page_title" => "Outcomes Funds",
         ];
 
         return view('pages.regular.users.outcomes_funds', $data);

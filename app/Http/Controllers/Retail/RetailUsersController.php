@@ -11,7 +11,8 @@ class RetailUsersController extends Controller
     {
         $data = [
             "title" => "Users",
-            "text" => "Users"
+            "text" => "Users",
+            "page_title" => "Users",
         ];
 
         return view('pages.retail.users.index', $data);

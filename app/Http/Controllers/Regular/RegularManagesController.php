@@ -12,6 +12,7 @@ class RegularManagesController extends Controller
         $data = [
             "title" => "Manages",
             "text" => "Manages / Promo",
+            "page_title" => "Promo",
         ];
 
         return view('pages.regular.manages.promo', $data);
@@ -22,6 +23,7 @@ class RegularManagesController extends Controller
         $data = [
             "title" => "Manages",
             "text" => "Manages / Digital Price",
+            "page_title" => "Digital Price",
         ];
 
         return view('pages.regular.manages.digital_price', $data);
@@ -32,6 +34,7 @@ class RegularManagesController extends Controller
         $data = [
             "title" => "Manages",
             "text" => "Manages / Gold Price",
+            "page_title" => "Gold Price",
         ];
 
         return view('pages.regular.manages.gold_price', $data);
@@ -42,6 +45,7 @@ class RegularManagesController extends Controller
         $data = [
             "title" => "Manages",
             "text" => "Manages / Product",
+            "page_title" => "Product",
         ];
 
         return view('pages.regular.manages.product', $data);
@@ -52,6 +56,7 @@ class RegularManagesController extends Controller
         $data = [
             "title" => "Manages",
             "text" => "Manages / Package",
+            "page_title" => "Package",
         ];
 
         return view('pages.regular.manages.package', $data);
@@ -62,6 +67,7 @@ class RegularManagesController extends Controller
         $data = [
             "title" => "Manages",
             "text" => "Manages / Crazy Deals",
+            "page_title" => "Crazy Deals",
         ];
 
         return view('pages.regular.manages.crazy_deals', $data);
@@ -72,6 +78,7 @@ class RegularManagesController extends Controller
         $data = [
             "title" => "Manages",
             "text" => "Manages / On Going",
+            "page_title" => "On Going",
         ];
 
         return view('pages.regular.manages.on_going', $data);
@@ -82,6 +89,7 @@ class RegularManagesController extends Controller
         $data = [
             "title" => "Manages",
             "text" => "Manages / Settle",
+            "page_title" => "Settle",
         ];
 
         return view('pages.regular.manages.settle', $data);

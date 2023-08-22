@@ -11,7 +11,8 @@ class VipPayoutsController extends Controller
     {
         $data = [
             "title" => "Payouts",
-            "text" => "Withdrawal"
+            "text" => "Withdrawal",
+            "page_title" => "Withdrawal",
         ];
 
         return view('pages.vip.payouts.withdrawal', $data);

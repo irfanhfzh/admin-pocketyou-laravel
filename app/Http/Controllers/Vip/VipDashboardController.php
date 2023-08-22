@@ -11,7 +11,8 @@ class VipDashboardController extends Controller
     {
         $data = [
             "title" => "Dashboard",
-            "text" => "Dashboard"
+            "text" => "Dashboard",
+            "page_title" => "Dashboard",
         ];
 
         return view('pages.vip.dashboard.index', $data);

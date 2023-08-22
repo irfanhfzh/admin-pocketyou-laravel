@@ -26,7 +26,7 @@ License: For each use you must have a valid license purchased only from above li
     <meta property="og:url" content="https://keenthemes.com/metronic" />
     <meta property="og:site_name" content="Keenthemes | Metronic" />
     <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
-    <link rel="shortcut icon" href="{{ asset('/') }}media/logos/favicon.ico" />
+    <link rel="shortcut icon" href="{{ asset('/') }}media/logos/favicon.png" />
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <!--end::Fonts-->
@@ -38,11 +38,13 @@ License: For each use you must have a valid license purchased only from above li
     <link href="{{ asset('/') }}plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('/') }}css/style.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
+    <link href="{{ asset('/') }}css/app.css" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/') }}css/custom.css" rel="stylesheet" type="text/css" />
 </head>
 <!--end::Head-->
 <!--begin::Body-->
 
-<body id="kt_app_body" data-kt-app-layout="light-sidebar" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default">
+<body id="kt_app_body" data-kt-app-layout="light-sidebar" data-kt-app-sidebar-enabled="true" data-kt-app-header-fixed="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default">
     <!--begin::Theme mode setup on page load-->
     <script>
         var defaultThemeMode = "light";
@@ -94,15 +96,31 @@ License: For each use you must have a valid license purchased only from above li
                     </div>
                     <!--end::Mobile logo-->
                     <!--begin::Header wrapper-->
-                    <div class="d-flex align-items-center justify-content-end flex-lg-grow-1" id="kt_app_header_wrapper">
+                    <div class="d-flex align-items-center justify-content-between flex-lg-grow-1" id="kt_app_header_wrapper">
+                        <h1 class="mb-0"><span style="font-weight: normal; color: #8D8D8D;">Hello,</span> Irfan Hafizh
+                        </h1>
                         <!--begin::Navbar-->
                         <div class="app-navbar flex-shrink-0">
                             <!--begin::Col-->
-                            <div class="col-md-6 fv-row" style="width: 182.42px;">
-                                <select class="form-select" data-control="select2" data-hide-search="true" data-placeholder="Select a Team Member" name="target_assign">
-                                    <option value="1" selected>PocketYou Regular</option>
-                                    <option value="4">PocketYou VIP</option>
-                                    <option value="5">PocketYou Retail</option>
+                            <div class="col-md-6 fv-row" style="width: 170px;">
+                                <select id="selectVersion" class="form-select" name="selectVersion">
+                                    @if (request()->is('regular*'))
+                                    <option value="regular" selected>PocketYou Asia</option>
+                                    <option value="vip">PocketYou VIP</option>
+                                    <option value="retail">PocketYou Retail</option>
+                                    @elseif (request()->is('vip*'))
+                                    <option value="regular">PocketYou Asia</option>
+                                    <option value="vip" selected>PocketYou VIP</option>
+                                    <option value="retail">PocketYou Retail</option>
+                                    @elseif (request()->is('retail*'))
+                                    <option value="regular">PocketYou Asia</option>
+                                    <option value="vip">PocketYou VIP</option>
+                                    <option value="retail" selected>PocketYou Retail</option>
+                                    @else
+                                    <option value="regular">PocketYou Asia</option>
+                                    <option value="vip">PocketYou VIP</option>
+                                    <option value="retail">PocketYou Retail</option>
+                                    @endif
                                 </select>
                             </div>
                             <!--end::Col-->
@@ -206,7 +224,7 @@ License: For each use you must have a valid license purchased only from above li
                             <div class="app-navbar-item ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
                                 <!--begin::Menu wrapper-->
                                 <div class="cursor-pointer symbol symbol-35px symbol-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-                                    <img src="{{ asset('/') }}media/avatars/300-1.jpg" alt="user" />
+                                    <img src="{{ asset('/') }}media/avatars/face8.jpg" alt="user" />
                                 </div>
                                 <!--begin::User account menu-->
                                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px" data-kt-menu="true">
@@ -215,15 +233,14 @@ License: For each use you must have a valid license purchased only from above li
                                         <div class="menu-content d-flex align-items-center px-3">
                                             <!--begin::Avatar-->
                                             <div class="symbol symbol-50px me-5">
-                                                <img alt="Logo" src="{{ asset('/') }}media/avatars/300-1.jpg" />
+                                                <img alt="Logo" src="{{ asset('/') }}media/avatars/face8.jpg" />
                                             </div>
                                             <!--end::Avatar-->
                                             <!--begin::Username-->
                                             <div class="d-flex flex-column">
-                                                <div class="fw-bold d-flex align-items-center fs-5">Max Smith
-                                                    <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Pro</span>
+                                                <div class="fw-bold d-flex align-items-center fs-5">Irfan Hafizh
                                                 </div>
-                                                <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">max@kt.com</a>
+                                                <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">irfanhafizh53@gmail.com</a>
                                             </div>
                                             <!--end::Username-->
                                         </div>
@@ -234,134 +251,20 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Menu separator-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-5">
-                                        <a href="../../demo1/dist/account/overview.html" class="menu-link px-5">My Profile</a>
+                                        <a href="{{ route('account.profile') }}" class="menu-link px-5">My
+                                            Profile</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-5">
-                                        <a href="../../demo1/dist/apps/projects/list.html" class="menu-link px-5">
-                                            <span class="menu-text">My Projects</span>
-                                            <span class="menu-badge">
-                                                <span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
-                                            </span>
+                                        <a href="{{ route('account.issues') }}" class="menu-link px-5">
+                                            <span class="menu-text">Issues</span>
                                         </a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start">
-                                        <a href="#" class="menu-link px-5">
-                                            <span class="menu-title">My Subscription</span>
-                                            <span class="menu-arrow"></span>
-                                        </a>
-                                        <!--begin::Menu sub-->
-                                        <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="../../demo1/dist/account/referrals.html" class="menu-link px-5">Referrals</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="../../demo1/dist/account/billing.html" class="menu-link px-5">Billing</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="../../demo1/dist/account/statements.html" class="menu-link px-5">Payments</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="../../demo1/dist/account/statements.html" class="menu-link d-flex flex-stack px-5">Statements
-                                                    <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="View your statements"></i></a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu separator-->
-                                            <div class="separator my-2"></div>
-                                            <!--end::Menu separator-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <div class="menu-content px-3">
-                                                    <label class="form-check form-switch form-check-custom form-check-solid">
-                                                        <input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
-                                                        <span class="form-check-label text-muted fs-7">Notifications</span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <!--end::Menu item-->
-                                        </div>
-                                        <!--end::Menu sub-->
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-5">
-                                        <a href="../../demo1/dist/account/statements.html" class="menu-link px-5">My Statements</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu separator-->
-                                    <div class="separator my-2"></div>
-                                    <!--end::Menu separator-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start">
-                                        <a href="#" class="menu-link px-5">
-                                            <span class="menu-title position-relative">Language
-                                                <span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
-                                                    <img class="w-15px h-15px rounded-1 ms-2" src="{{ asset('/') }}media/flags/united-states.svg" alt="" /></span></span>
-                                        </a>
-                                        <!--begin::Menu sub-->
-                                        <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5 active">
-                                                    <span class="symbol symbol-20px me-4">
-                                                        <img class="rounded-1" src="{{ asset('/') }}media/flags/united-states.svg" alt="" />
-                                                    </span>English</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
-                                                    <span class="symbol symbol-20px me-4">
-                                                        <img class="rounded-1" src="{{ asset('/') }}media/flags/spain.svg" alt="" />
-                                                    </span>Spanish</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
-                                                    <span class="symbol symbol-20px me-4">
-                                                        <img class="rounded-1" src="{{ asset('/') }}media/flags/germany.svg" alt="" />
-                                                    </span>German</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
-                                                    <span class="symbol symbol-20px me-4">
-                                                        <img class="rounded-1" src="{{ asset('/') }}media/flags/japan.svg" alt="" />
-                                                    </span>Japanese</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="../../demo1/dist/account/settings.html" class="menu-link d-flex px-5">
-                                                    <span class="symbol symbol-20px me-4">
-                                                        <img class="rounded-1" src="{{ asset('/') }}media/flags/france.svg" alt="" />
-                                                    </span>French</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                        </div>
-                                        <!--end::Menu sub-->
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-5 my-1">
-                                        <a href="../../demo1/dist/account/settings.html" class="menu-link px-5">Account Settings</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-5">
-                                        <a href="../../demo1/dist/authentication/layouts/corporate/sign-in.html" class="menu-link px-5">Sign Out</a>
+                                        <a href="{{ route('sign_in') }}" class="menu-link px-5">Sign Out</a>
                                     </div>
                                     <!--end::Menu item-->
                                 </div>
@@ -369,20 +272,6 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--end::Menu wrapper-->
                             </div>
                             <!--end::User menu-->
-                            <!--begin::Header menu toggle-->
-                            <div class="app-navbar-item d-lg-none ms-2 me-n3" title="Show header menu">
-                                <div class="btn btn-icon btn-active-color-primary w-35px h-35px" id="kt_app_header_menu_toggle">
-                                    <!--begin::Svg Icon | path: icons/duotune/text/txt001.svg-->
-                                    <span class="svg-icon svg-icon-1">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M13 11H3C2.4 11 2 10.6 2 10V9C2 8.4 2.4 8 3 8H13C13.6 8 14 8.4 14 9V10C14 10.6 13.6 11 13 11ZM22 5V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4V5C2 5.6 2.4 6 3 6H21C21.6 6 22 5.6 22 5Z" fill="currentColor" />
-                                            <path opacity="0.3" d="M21 16H3C2.4 16 2 15.6 2 15V14C2 13.4 2.4 13 3 13H21C21.6 13 22 13.4 22 14V15C22 15.6 21.6 16 21 16ZM14 20V19C14 18.4 13.6 18 13 18H3C2.4 18 2 18.4 2 19V20C2 20.6 2.4 21 3 21H13C13.6 21 14 20.6 14 20Z" fill="currentColor" />
-                                        </svg>
-                                    </span>
-                                    <!--end::Svg Icon-->
-                                </div>
-                            </div>
-                            <!--end::Header menu toggle-->
                         </div>
                         <!--end::Navbar-->
                     </div>
@@ -393,49 +282,88 @@ License: For each use you must have a valid license purchased only from above li
             <!--end::Header-->
             <!--begin::Wrapper-->
             <div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
-                <!--begin::sidebar-->
-                <div id="kt_app_sidebar" class="app-sidebar flex-column" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="225px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
-                    <!--begin::Logo-->
-                    <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
-                        <!--begin::Logo image-->
-                        <a href="{{ route('regular') }}">
-                            <img alt="Logo" src="{{ asset('/') }}media/logos/default.svg" class="h-25px app-sidebar-logo-default theme-light-show" />
-                            <img alt="Logo" src="{{ asset('/') }}media/logos/default-dark.svg" class="h-25px app-sidebar-logo-default theme-dark-show" />
-                            <img alt="Logo" src="{{ asset('/') }}media/logos/default-small.svg" class="h-20px app-sidebar-logo-minimize" />
-                        </a>
-                        <!--end::Logo image-->
-                        <!--begin::Sidebar toggle-->
-                        <div id="kt_app_sidebar_toggle" class="app-sidebar-toggle btn btn-icon btn-shadow btn-sm btn-color-muted btn-active-color-primary body-bg h-30px w-30px position-absolute top-50 start-100 translate-middle rotate" data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body" data-kt-toggle-name="app-sidebar-minimize">
-                            <!--begin::Svg Icon | path: icons/duotune/arrows/arr079.svg-->
-                            <span class="svg-icon svg-icon-2 rotate-180">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path opacity="0.5" d="M14.2657 11.4343L18.45 7.25C18.8642 6.83579 18.8642 6.16421 18.45 5.75C18.0358 5.33579 17.3642 5.33579 16.95 5.75L11.4071 11.2929C11.0166 11.6834 11.0166 12.3166 11.4071 12.7071L16.95 18.25C17.3642 18.6642 18.0358 18.6642 18.45 18.25C18.8642 17.8358 18.8642 17.1642 18.45 16.75L14.2657 12.5657C13.9533 12.2533 13.9533 11.7467 14.2657 11.4343Z" fill="currentColor" />
-                                    <path d="M8.2657 11.4343L12.45 7.25C12.8642 6.83579 12.8642 6.16421 12.45 5.75C12.0358 5.33579 11.3642 5.33579 10.95 5.75L5.40712 11.2929C5.01659 11.6834 5.01659 12.3166 5.40712 12.7071L10.95 18.25C11.3642 18.6642 12.0358 18.6642 12.45 18.25C12.8642 17.8358 12.8642 17.1642 12.45 16.75L8.2657 12.5657C7.95328 12.2533 7.95328 11.7467 8.2657 11.4343Z" fill="currentColor" />
-                                </svg>
-                            </span>
-                            <!--end::Svg Icon-->
+                @if (request()->is('regular*') || request()->is('vip*') || request()->is('retail*'))
+                @include('layout.partials.sidebar_menu')
+                @endif
+                <!--begin::Main-->
+                <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
+                    <!--begin::Content wrapper-->
+                    <div class="d-flex flex-column flex-column-fluid">
+                        <!--begin::Toolbar-->
+                        <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+                            <!--begin::Toolbar container-->
+                            <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
+                                <!--begin::Page title-->
+                                <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                                    <!--begin::Title-->
+                                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+                                        {{ $page_title }}
+                                    </h1>
+                                    <!--end::Title-->
+                                    <!--begin::Breadcrumb-->
+                                    <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+                                        <!--begin::Item-->
+                                        <li class="breadcrumb-item text-muted">
+                                            @if (request()->is('regular*'))
+                                            <a href="{{ route('regular') }}" class="text-muted text-hover-primary">PocketYou
+                                                Asia</a>
+                                            @elseif (request()->is('vip*'))
+                                            <a href="{{ route('vip') }}" class="text-muted text-hover-primary">PocketYou
+                                                VIP</a>
+                                            @elseif (request()->is('retail*'))
+                                            <a href="{{ route('retail') }}" class="text-muted text-hover-primary">PocketYou
+                                                Retail</a>
+                                            @endif
+                                        </li>
+                                        <!--end::Item-->
+                                        <!--begin::Item-->
+                                        <li class="breadcrumb-item">
+                                            <span class="bullet bg-gray-400 w-5px h-2px"></span>
+                                        </li>
+                                        <!--end::Item-->
+                                        <!--begin::Item-->
+                                        <li class="breadcrumb-item text-muted">{{ $title }}</li>
+                                        <!--end::Item-->
+                                    </ul>
+                                    <!--end::Breadcrumb-->
+                                </div>
+                                <!--end::Page title-->
+                                <!--begin::Actions-->
+                                <div class="d-flex align-items-center gap-2 gap-lg-3">
+                                </div>
+                                <!--end::Actions-->
+                            </div>
+                            <!--end::Toolbar container-->
                         </div>
-                        <!--end::Sidebar toggle-->
-                    </div>
-                    <!--end::Logo-->
-                    <!--begin::sidebar menu-->
-                    <div class="app-sidebar-menu overflow-hidden flex-column-fluid">
-                        <!--begin::Menu wrapper-->
-                        <div id="kt_app_sidebar_menu_wrapper" class="app-sidebar-wrapper hover-scroll-overlay-y my-5" data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer" data-kt-scroll-wrappers="#kt_app_sidebar_menu" data-kt-scroll-offset="5px" data-kt-scroll-save-state="true">
-                            @if (request()->is('regular*'))
-                            @include('layout.partials.menu.regular')
-                            @elseif (request()->is('vip*'))
-                            @include('layout.partials.menu.vip')
-                            @elseif (request()->is('retail*'))
-                            @include('layout.partials.menu.retail')
-                            @endif
+                        <!--end::Toolbar-->
+                        <!--begin::Content-->
+                        <div id="kt_app_content" class="app-content flex-column-fluid">
+                            <!--begin::Content container-->
+                            <div id="kt_app_content_container" class="app-container container-fluid">
+                                @yield('main')
+                            </div>
+                            <!--end::Content container-->
                         </div>
-                        <!--end::Menu wrapper-->
+                        <!--end::Content-->
                     </div>
-                    <!--end::sidebar menu-->
+                    <!--end::Content wrapper-->
+                    <!--begin::Footer-->
+                    <div id="kt_app_footer" class="app-footer">
+                        <!--begin::Footer container-->
+                        <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
+                            <!--begin::Copyright-->
+                            <div class="text-dark order-2 order-md-1">
+                                <span class="text-muted fw-semibold">Copyright &copy; 2023. All rights reserved</span>
+                                <a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">PocketYou.</a>
+                            </div>
+                            <!--end::Copyright-->
+                        </div>
+                        <!--end::Footer container-->
+                    </div>
+                    <!--end::Footer-->
                 </div>
-                <!--end::sidebar-->
-                @yield('main')
+                <!--end:::Main-->
+                {{-- @yield('main') --}}
             </div>
             <!--end::Wrapper-->
         </div>
@@ -493,7 +421,8 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--begin::Timeline heading-->
                                 <div class="pe-3 mb-5">
                                     <!--begin::Title-->
-                                    <div class="fs-5 fw-semibold mb-2">There are 2 new tasks for you in “AirPlus Mobile App” project:</div>
+                                    <div class="fs-5 fw-semibold mb-2">There are 2 new tasks for you in “AirPlus Mobile
+                                        App” project:</div>
                                     <!--end::Title-->
                                     <!--begin::Description-->
                                     <div class="d-flex align-items-center mt-1 fs-6">
@@ -502,7 +431,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end::Info-->
                                         <!--begin::User-->
                                         <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-                                            <img src="{{ asset('/') }}media/avatars/300-14.jpg" alt="img" />
+                                            <img src="{{ asset('/') }}media/avatars/face84.jpg" alt="img" />
                                         </div>
                                         <!--end::User-->
                                     </div>
@@ -514,7 +443,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Record-->
                                     <div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-750px px-7 py-3 mb-5">
                                         <!--begin::Title-->
-                                        <a href="../../demo1/dist/apps/projects/project.html" class="fs-5 text-dark text-hover-primary fw-semibold w-375px min-w-200px">Meeting with customer</a>
+                                        <a href="../../demo1/dist/apps/projects/project.html" class="fs-5 text-dark text-hover-primary fw-semibold w-375px min-w-200px">Meeting
+                                            with customer</a>
                                         <!--end::Title-->
                                         <!--begin::Label-->
                                         <div class="min-w-175px pe-2">
@@ -530,12 +460,13 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::User-->
                                             <!--begin::User-->
                                             <div class="symbol symbol-circle symbol-25px">
-                                                <img src="{{ asset('/') }}media/avatars/300-14.jpg" alt="img" />
+                                                <img src="{{ asset('/') }}media/avatars/face84.jpg" alt="img" />
                                             </div>
                                             <!--end::User-->
                                             <!--begin::User-->
                                             <div class="symbol symbol-circle symbol-25px">
-                                                <div class="symbol-label fs-8 fw-semibold bg-primary text-inverse-primary">A</div>
+                                                <div class="symbol-label fs-8 fw-semibold bg-primary text-inverse-primary">
+                                                    A</div>
                                             </div>
                                             <!--end::User-->
                                         </div>
@@ -553,7 +484,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Record-->
                                     <div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-750px px-7 py-3 mb-0">
                                         <!--begin::Title-->
-                                        <a href="../../demo1/dist/apps/projects/project.html" class="fs-5 text-dark text-hover-primary fw-semibold w-375px min-w-200px">Project Delivery Preparation</a>
+                                        <a href="../../demo1/dist/apps/projects/project.html" class="fs-5 text-dark text-hover-primary fw-semibold w-375px min-w-200px">Project
+                                            Delivery Preparation</a>
                                         <!--end::Title-->
                                         <!--begin::Label-->
                                         <div class="min-w-175px">
@@ -569,7 +501,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::User-->
                                             <!--begin::User-->
                                             <div class="symbol symbol-circle symbol-25px">
-                                                <div class="symbol-label fs-8 fw-semibold bg-success text-inverse-primary">B</div>
+                                                <div class="symbol-label fs-8 fw-semibold bg-success text-inverse-primary">
+                                                    B</div>
                                             </div>
                                             <!--end::User-->
                                         </div>
@@ -614,7 +547,8 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--begin::Timeline heading-->
                                 <div class="overflow-auto pe-3">
                                     <!--begin::Title-->
-                                    <div class="fs-5 fw-semibold mb-2">Invitation for crafting engaging designs that speak human workshop</div>
+                                    <div class="fs-5 fw-semibold mb-2">Invitation for crafting engaging designs that
+                                        speak human workshop</div>
                                     <!--end::Title-->
                                     <!--begin::Description-->
                                     <div class="d-flex align-items-center mt-1 fs-6">
@@ -623,7 +557,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end::Info-->
                                         <!--begin::User-->
                                         <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Alan Nilson">
-                                            <img src="{{ asset('/') }}media/avatars/300-1.jpg" alt="img" />
+                                            <img src="{{ asset('/') }}media/avatars/face8.jpg" alt="img" />
                                         </div>
                                         <!--end::User-->
                                     </div>
@@ -658,7 +592,8 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--begin::Timeline heading-->
                                 <div class="mb-5 pe-3">
                                     <!--begin::Title-->
-                                    <a href="#" class="fs-5 fw-semibold text-gray-800 text-hover-primary mb-2">3 New Incoming Project Files:</a>
+                                    <a href="#" class="fs-5 fw-semibold text-gray-800 text-hover-primary mb-2">3 New
+                                        Incoming Project Files:</a>
                                     <!--end::Title-->
                                     <!--begin::Description-->
                                     <div class="d-flex align-items-center mt-1 fs-6">
@@ -685,7 +620,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--begin::Info-->
                                             <div class="ms-1 fw-semibold">
                                                 <!--begin::Desc-->
-                                                <a href="../../demo1/dist/apps/projects/project.html" class="fs-6 text-hover-primary fw-bold">Finance KPI App Guidelines</a>
+                                                <a href="../../demo1/dist/apps/projects/project.html" class="fs-6 text-hover-primary fw-bold">Finance KPI App
+                                                    Guidelines</a>
                                                 <!--end::Desc-->
                                                 <!--begin::Number-->
                                                 <div class="text-gray-400">1.9mb</div>
@@ -702,7 +638,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--begin::Info-->
                                             <div class="ms-1 fw-semibold">
                                                 <!--begin::Desc-->
-                                                <a href="#" class="fs-6 text-hover-primary fw-bold">Client UAT Testing Results</a>
+                                                <a href="#" class="fs-6 text-hover-primary fw-bold">Client UAT Testing
+                                                    Results</a>
                                                 <!--end::Desc-->
                                                 <!--begin::Number-->
                                                 <div class="text-gray-400">18kb</div>
@@ -761,7 +698,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Title-->
                                     <div class="fs-5 fw-semibold mb-2">Task
                                         <a href="#" class="text-primary fw-bold me-1">#45890</a>merged with
-                                        <a href="#" class="text-primary fw-bold me-1">#45890</a>in “Ads Pro Admin Dashboard project:
+                                        <a href="#" class="text-primary fw-bold me-1">#45890</a>in “Ads Pro Admin
+                                        Dashboard project:
                                     </div>
                                     <!--end::Title-->
                                     <!--begin::Description-->
@@ -771,7 +709,7 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--end::Info-->
                                         <!--begin::User-->
                                         <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-                                            <img src="{{ asset('/') }}media/avatars/300-14.jpg" alt="img" />
+                                            <img src="{{ asset('/') }}media/avatars/face84.jpg" alt="img" />
                                         </div>
                                         <!--end::User-->
                                     </div>
@@ -899,7 +837,8 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="pe-3 mb-5">
                                     <!--begin::Title-->
                                     <div class="fs-5 fw-semibold mb-2">New case
-                                        <a href="#" class="text-primary fw-bold me-1">#67890</a>is assigned to you in Multi-platform Database Design project
+                                        <a href="#" class="text-primary fw-bold me-1">#67890</a>is assigned to you in
+                                        Multi-platform Database Design project
                                     </div>
                                     <!--end::Title-->
                                     <!--begin::Description-->
@@ -980,8 +919,10 @@ License: For each use you must have a valid license purchased only from above li
                                         <div class="d-flex flex-stack flex-grow-1 flex-wrap flex-md-nowrap">
                                             <!--begin::Content-->
                                             <div class="mb-3 mb-md-0 fw-semibold">
-                                                <h4 class="text-gray-900 fw-bold">Database Backup Process Completed!</h4>
-                                                <div class="fs-6 text-gray-700 pe-7">Login into Admin Dashboard to make sure the data integrity is OK</div>
+                                                <h4 class="text-gray-900 fw-bold">Database Backup Process Completed!
+                                                </h4>
+                                                <div class="fs-6 text-gray-700 pe-7">Login into Admin Dashboard to make
+                                                    sure the data integrity is OK</div>
                                             </div>
                                             <!--end::Content-->
                                             <!--begin::Action-->
@@ -1023,7 +964,8 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="pe-3 mb-5">
                                     <!--begin::Title-->
                                     <div class="fs-5 fw-semibold mb-2">New order
-                                        <a href="#" class="text-primary fw-bold me-1">#67890</a>is placed for Workshow Planning & Budget Estimation
+                                        <a href="#" class="text-primary fw-bold me-1">#67890</a>is placed for Workshow
+                                        Planning & Budget Estimation
                                     </div>
                                     <!--end::Title-->
                                     <!--begin::Description-->
@@ -1050,7 +992,8 @@ License: For each use you must have a valid license purchased only from above li
             <!--end::Body-->
             <!--begin::Footer-->
             <div class="card-footer py-5 text-center" id="kt_activities_footer">
-                <a href="../../demo1/dist/pages/user-profile/activity.html" class="btn btn-bg-body text-primary">View All Activities
+                <a href="../../demo1/dist/pages/user-profile/activity.html" class="btn btn-bg-body text-primary">View
+                    All Activities
                     <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
                     <span class="svg-icon svg-icon-3 svg-icon-primary">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1058,7 +1001,8 @@ License: For each use you must have a valid license purchased only from above li
                             <path d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z" fill="currentColor" />
                         </svg>
                     </span>
-                    <!--end::Svg Icon--></a>
+                    <!--end::Svg Icon-->
+                </a>
             </div>
             <!--end::Footer-->
         </div>
@@ -1186,7 +1130,8 @@ License: For each use you must have a valid license purchased only from above li
                             </div>
                             <!--end::User-->
                             <!--begin::Text-->
-                            <div class="p-5 rounded bg-light-info text-dark fw-semibold mw-lg-400px text-start" data-kt-element="message-text">How likely are you to recommend our company to your friends and family ?</div>
+                            <div class="p-5 rounded bg-light-info text-dark fw-semibold mw-lg-400px text-start" data-kt-element="message-text">How likely are you to recommend our company to your
+                                friends and family ?</div>
                             <!--end::Text-->
                         </div>
                         <!--end::Wrapper-->
@@ -1206,13 +1151,14 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--end::Details-->
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-35px symbol-circle">
-                                    <img alt="Pic" src="{{ asset('/') }}media/avatars/300-1.jpg" />
+                                    <img alt="Pic" src="{{ asset('/') }}media/avatars/face8.jpg" />
                                 </div>
                                 <!--end::Avatar-->
                             </div>
                             <!--end::User-->
                             <!--begin::Text-->
-                            <div class="p-5 rounded bg-light-primary text-dark fw-semibold mw-lg-400px text-end" data-kt-element="message-text">Hey there, we’re just writing to let you know that you’ve been subscribed to a repository on GitHub.</div>
+                            <div class="p-5 rounded bg-light-primary text-dark fw-semibold mw-lg-400px text-end" data-kt-element="message-text">Hey there, we’re just writing to let you know that you’ve
+                                been subscribed to a repository on GitHub.</div>
                             <!--end::Text-->
                         </div>
                         <!--end::Wrapper-->
@@ -1258,13 +1204,14 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--end::Details-->
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-35px symbol-circle">
-                                    <img alt="Pic" src="{{ asset('/') }}media/avatars/300-1.jpg" />
+                                    <img alt="Pic" src="{{ asset('/') }}media/avatars/face8.jpg" />
                                 </div>
                                 <!--end::Avatar-->
                             </div>
                             <!--end::User-->
                             <!--begin::Text-->
-                            <div class="p-5 rounded bg-light-primary text-dark fw-semibold mw-lg-400px text-end" data-kt-element="message-text">You’ll receive notifications for all issues, pull requests!</div>
+                            <div class="p-5 rounded bg-light-primary text-dark fw-semibold mw-lg-400px text-end" data-kt-element="message-text">You’ll receive notifications for all issues, pull
+                                requests!</div>
                             <!--end::Text-->
                         </div>
                         <!--end::Wrapper-->
@@ -1290,7 +1237,8 @@ License: For each use you must have a valid license purchased only from above li
                             </div>
                             <!--end::User-->
                             <!--begin::Text-->
-                            <div class="p-5 rounded bg-light-info text-dark fw-semibold mw-lg-400px text-start" data-kt-element="message-text">You can unwatch this repository immediately by clicking here:
+                            <div class="p-5 rounded bg-light-info text-dark fw-semibold mw-lg-400px text-start" data-kt-element="message-text">You can unwatch this repository immediately by clicking
+                                here:
                                 <a href="https://keenthemes.com">Keenthemes.com</a>
                             </div>
                             <!--end::Text-->
@@ -1312,7 +1260,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--end::Details-->
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-35px symbol-circle">
-                                    <img alt="Pic" src="{{ asset('/') }}media/avatars/300-1.jpg" />
+                                    <img alt="Pic" src="{{ asset('/') }}media/avatars/face8.jpg" />
                                 </div>
                                 <!--end::Avatar-->
                             </div>
@@ -1344,7 +1292,8 @@ License: For each use you must have a valid license purchased only from above li
                             </div>
                             <!--end::User-->
                             <!--begin::Text-->
-                            <div class="p-5 rounded bg-light-info text-dark fw-semibold mw-lg-400px text-start" data-kt-element="message-text">Company BBQ to celebrate the last quater achievements and goals. Food and drinks provided</div>
+                            <div class="p-5 rounded bg-light-info text-dark fw-semibold mw-lg-400px text-start" data-kt-element="message-text">Company BBQ to celebrate the last quater achievements and
+                                goals. Food and drinks provided</div>
                             <!--end::Text-->
                         </div>
                         <!--end::Wrapper-->
@@ -1364,7 +1313,7 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--end::Details-->
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-35px symbol-circle">
-                                    <img alt="Pic" src="{{ asset('/') }}media/avatars/300-1.jpg" />
+                                    <img alt="Pic" src="{{ asset('/') }}media/avatars/face8.jpg" />
                                 </div>
                                 <!--end::Avatar-->
                             </div>
@@ -1396,7 +1345,8 @@ License: For each use you must have a valid license purchased only from above li
                             </div>
                             <!--end::User-->
                             <!--begin::Text-->
-                            <div class="p-5 rounded bg-light-info text-dark fw-semibold mw-lg-400px text-start" data-kt-element="message-text">Right before vacation season we have the next Big Deal for you.</div>
+                            <div class="p-5 rounded bg-light-info text-dark fw-semibold mw-lg-400px text-start" data-kt-element="message-text">Right before vacation season we have the next Big Deal
+                                for you.</div>
                             <!--end::Text-->
                         </div>
                         <!--end::Wrapper-->
@@ -1476,7 +1426,8 @@ License: For each use you must have a valid license purchased only from above li
                             <div class="d-flex flex-stack">
                                 <div class="d-flex flex-column">
                                     <div class="d-flex align-items-center mb-1">
-                                        <div class="fs-6 fw-semibold text-gray-800 fw-semibold mb-0 me-1">Regular License</div>
+                                        <div class="fs-6 fw-semibold text-gray-800 fw-semibold mb-0 me-1">Regular
+                                            License</div>
                                         <i class="text-gray-400 fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="popover" data-bs-custom-class="popover-inverse" data-bs-trigger="hover" data-bs-placement="top" data-bs-content="Use, by you or one client in a single end product which end users are not charged for"></i>
                                     </div>
                                     <div class="fs-7 text-muted">For single end product used by you or one client</div>
@@ -1493,7 +1444,8 @@ License: For each use you must have a valid license purchased only from above li
                             <div class="d-flex flex-stack">
                                 <div class="d-flex flex-column">
                                     <div class="d-flex align-items-center mb-1">
-                                        <div class="fs-6 fw-semibold text-gray-800 fw-semibold mb-0 me-1">Extended License</div>
+                                        <div class="fs-6 fw-semibold text-gray-800 fw-semibold mb-0 me-1">Extended
+                                            License</div>
                                         <i class="text-gray-400 fas fa-exclamation-circle ms-1 fs-7" data-bs-toggle="popover" data-bs-custom-class="popover-inverse" data-bs-trigger="hover" data-bs-placement="top" data-bs-content="Use, by you or one client, in a single end product which end users can be charged for."></i>
                                     </div>
                                     <div class="fs-7 text-muted">For single SaaS app with paying users</div>
@@ -1510,7 +1462,8 @@ License: For each use you must have a valid license purchased only from above li
                             <div class="d-flex flex-stack">
                                 <div class="d-flex flex-column">
                                     <div class="d-flex align-items-center mb-1">
-                                        <div class="fs-6 fw-semibold text-gray-800 fw-semibold mb-0 me-1">Custom License</div>
+                                        <div class="fs-6 fw-semibold text-gray-800 fw-semibold mb-0 me-1">Custom License
+                                        </div>
                                     </div>
                                     <div class="fs-7 text-muted">Reach us for custom license offers.</div>
                                 </div>
@@ -1844,7 +1797,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <img src="{{ asset('/') }}media/demos/demo23.png" alt="demo" class="w-100 opacity-25" />
                                         </div>
                                         <div class="overlay-layer bg-dark bg-opacity-10">
-                                            <div class="badge badge-white px-6 py-4 fw-semibold fs-base shadow">Coming soon</div>
+                                            <div class="badge badge-white px-6 py-4 fw-semibold fs-base shadow">Coming
+                                                soon</div>
                                         </div>
                                     </div>
                                     <!--end::Demo-->
@@ -1858,7 +1812,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <img src="{{ asset('/') }}media/demos/demo24.png" alt="demo" class="w-100 opacity-25" />
                                         </div>
                                         <div class="overlay-layer bg-dark bg-opacity-10">
-                                            <div class="badge badge-white px-6 py-4 fw-semibold fs-base shadow">Coming soon</div>
+                                            <div class="badge badge-white px-6 py-4 fw-semibold fs-base shadow">Coming
+                                                soon</div>
                                         </div>
                                     </div>
                                     <!--end::Demo-->
@@ -1912,12 +1867,14 @@ License: For each use you must have a valid license purchased only from above li
                         <!--end::Heading-->
                         <!--begin::Description-->
                         <div class="fs-5 fw-semibold mb-5">
-                            <span class="text-gray-500">Join our developers community to find answer to your question and help others.</span>
+                            <span class="text-gray-500">Join our developers community to find answer to your question
+                                and help others.</span>
                             <a class="explore-link d-none" href="https://keenthemes.com/licensing">FAQs</a>
                         </div>
                         <!--end::Description-->
                         <!--begin::Link-->
-                        <a href="https://devs.keenthemes.com" class="btn btn-lg explore-btn-primary w-100">Get Support</a>
+                        <a href="https://devs.keenthemes.com" class="btn btn-lg explore-btn-primary w-100">Get
+                            Support</a>
                         <!--end::Link-->
                     </div>
                     <!--end::Support-->
@@ -1940,10 +1897,12 @@ License: For each use you must have a valid license purchased only from above li
                             <!--begin::Wrapper-->
                             <div class="d-flex flex-column me-2 me-lg-5">
                                 <!--begin::Title-->
-                                <a href="https://preview.keenthemes.com/html/metronic/docs" class="text-dark text-hover-primary fw-bold fs-6 fs-lg-4 mb-1">Documentation & Videos</a>
+                                <a href="https://preview.keenthemes.com/html/metronic/docs" class="text-dark text-hover-primary fw-bold fs-6 fs-lg-4 mb-1">Documentation &
+                                    Videos</a>
                                 <!--end::Title-->
                                 <!--begin::Description-->
-                                <div class="text-muted fw-semibold fs-7 fs-lg-6">From guides and video tutorials, to live demos and code examples to get started.</div>
+                                <div class="text-muted fw-semibold fs-7 fs-lg-6">From guides and video tutorials, to
+                                    live demos and code examples to get started.</div>
                                 <!--end::Description-->
                             </div>
                             <!--end::Wrapper-->
@@ -1979,10 +1938,12 @@ License: For each use you must have a valid license purchased only from above li
                             <!--begin::Wrapper-->
                             <div class="d-flex flex-column me-2 me-lg-5">
                                 <!--begin::Title-->
-                                <a href="https://preview.keenthemes.com/html/metronic/docs//base/utilities" class="text-dark text-hover-primary fw-bold fs-6 fs-lg-4 mb-1">Plugins & Components</a>
+                                <a href="https://preview.keenthemes.com/html/metronic/docs//base/utilities" class="text-dark text-hover-primary fw-bold fs-6 fs-lg-4 mb-1">Plugins &
+                                    Components</a>
                                 <!--end::Title-->
                                 <!--begin::Description-->
-                                <div class="text-muted fw-semibold fs-7 fs-lg-6">Check out our 300+ in-house components and customized 3rd-party plugins.</div>
+                                <div class="text-muted fw-semibold fs-7 fs-lg-6">Check out our 300+ in-house components
+                                    and customized 3rd-party plugins.</div>
                                 <!--end::Description-->
                             </div>
                             <!--end::Wrapper-->
@@ -2020,7 +1981,8 @@ License: For each use you must have a valid license purchased only from above li
                                 <a href="https://preview.keenthemes.com/metronic8/demo1/layout-builder.html" class="text-dark text-hover-primary fw-bold fs-6 fs-lg-4 mb-1">Layout Builder</a>
                                 <!--end::Title-->
                                 <!--begin::Description-->
-                                <div class="text-muted fw-semibold fs-7 fs-lg-6">Build your layout, preview it and export the HTML for server side integration.</div>
+                                <div class="text-muted fw-semibold fs-7 fs-lg-6">Build your layout, preview it and
+                                    export the HTML for server side integration.</div>
                                 <!--end::Description-->
                             </div>
                             <!--end::Wrapper-->
@@ -2056,10 +2018,12 @@ License: For each use you must have a valid license purchased only from above li
                             <!--begin::Wrapper-->
                             <div class="d-flex flex-column me-2 me-lg-5">
                                 <!--begin::Title-->
-                                <a href="https://devs.keenthemes.com/metronic" class="text-dark text-hover-primary fw-bold fs-6 fs-lg-4 mb-1">Metronic Downloads</a>
+                                <a href="https://devs.keenthemes.com/metronic" class="text-dark text-hover-primary fw-bold fs-6 fs-lg-4 mb-1">Metronic
+                                    Downloads</a>
                                 <!--end::Title-->
                                 <!--begin::Description-->
-                                <div class="text-muted fw-semibold fs-7 fs-lg-6">Download your prefered framework and demo with one click.</div>
+                                <div class="text-muted fw-semibold fs-7 fs-lg-6">Download your prefered framework and
+                                    demo with one click.</div>
                                 <!--end::Description-->
                             </div>
                             <!--end::Wrapper-->
@@ -2097,7 +2061,8 @@ License: For each use you must have a valid license purchased only from above li
                                 <a href="https://preview.keenthemes.com/html/metronic/docs/getting-started/changelog" class="text-dark text-hover-primary fw-bold fs-6 fs-lg-4 mb-1">What's New ?</a>
                                 <!--end::Title-->
                                 <!--begin::Description-->
-                                <div class="text-muted fw-semibold fs-7 fs-lg-6">Latest features and improvements added with our users feedback in mind.</div>
+                                <div class="text-muted fw-semibold fs-7 fs-lg-6">Latest features and improvements added
+                                    with our users feedback in mind.</div>
                                 <!--end::Description-->
                             </div>
                             <!--end::Wrapper-->
@@ -2192,7 +2157,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Radio-->
                                             <!--begin::Info-->
                                             <div class="flex-grow-1">
-                                                <div class="d-flex align-items-center fs-2 fw-bold flex-wrap">Startup</div>
+                                                <div class="d-flex align-items-center fs-2 fw-bold flex-wrap">Startup
+                                                </div>
                                                 <div class="fw-semibold opacity-75">Best for startups</div>
                                             </div>
                                             <!--end::Info-->
@@ -2219,7 +2185,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Radio-->
                                             <!--begin::Info-->
                                             <div class="flex-grow-1">
-                                                <div class="d-flex align-items-center fs-2 fw-bold flex-wrap">Advanced</div>
+                                                <div class="d-flex align-items-center fs-2 fw-bold flex-wrap">Advanced
+                                                </div>
                                                 <div class="fw-semibold opacity-75">Best for 100+ team size</div>
                                             </div>
                                             <!--end::Info-->
@@ -2275,7 +2242,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Radio-->
                                             <!--begin::Info-->
                                             <div class="flex-grow-1">
-                                                <div class="d-flex align-items-center fs-2 fw-bold flex-wrap">Custom</div>
+                                                <div class="d-flex align-items-center fs-2 fw-bold flex-wrap">Custom
+                                                </div>
                                                 <div class="fw-semibold opacity-75">Requet a custom license</div>
                                             </div>
                                             <!--end::Info-->
@@ -2301,14 +2269,16 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin::Heading-->
                                         <div class="pb-5">
                                             <h2 class="fw-bold text-dark">What’s in Startup Plan?</h2>
-                                            <div class="text-muted fw-semibold">Optimal for 10+ team size and new startup</div>
+                                            <div class="text-muted fw-semibold">Optimal for 10+ team size and new
+                                                startup</div>
                                         </div>
                                         <!--end::Heading-->
                                         <!--begin::Body-->
                                         <div class="pt-1">
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Up to 10 Active Users</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Up to 10 Active
+                                                    Users</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2321,7 +2291,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Up to 30 Project Integrations</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Up to 30
+                                                    Project Integrations</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2334,7 +2305,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Analytics Module</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Analytics
+                                                    Module</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2347,7 +2319,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-muted flex-grow-1">Finance Module</span>
+                                                <span class="fw-semibold fs-5 text-muted flex-grow-1">Finance
+                                                    Module</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen040.svg-->
                                                 <span class="svg-icon svg-icon-1">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2361,7 +2334,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-muted flex-grow-1">Accounting Module</span>
+                                                <span class="fw-semibold fs-5 text-muted flex-grow-1">Accounting
+                                                    Module</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen040.svg-->
                                                 <span class="svg-icon svg-icon-1">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2375,7 +2349,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-muted flex-grow-1">Network Platform</span>
+                                                <span class="fw-semibold fs-5 text-muted flex-grow-1">Network
+                                                    Platform</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen040.svg-->
                                                 <span class="svg-icon svg-icon-1">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2389,7 +2364,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center">
-                                                <span class="fw-semibold fs-5 text-muted flex-grow-1">Unlimited Cloud Space</span>
+                                                <span class="fw-semibold fs-5 text-muted flex-grow-1">Unlimited Cloud
+                                                    Space</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen040.svg-->
                                                 <span class="svg-icon svg-icon-1">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2410,14 +2386,16 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin::Heading-->
                                         <div class="pb-5">
                                             <h2 class="fw-bold text-dark">What’s in Startup Plan?</h2>
-                                            <div class="text-muted fw-semibold">Optimal for 100+ team size and grown company</div>
+                                            <div class="text-muted fw-semibold">Optimal for 100+ team size and grown
+                                                company</div>
                                         </div>
                                         <!--end::Heading-->
                                         <!--begin::Body-->
                                         <div class="pt-1">
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Up to 10 Active Users</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Up to 10 Active
+                                                    Users</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2430,7 +2408,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Up to 30 Project Integrations</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Up to 30
+                                                    Project Integrations</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2443,7 +2422,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Analytics Module</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Analytics
+                                                    Module</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2456,7 +2436,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Finance Module</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Finance
+                                                    Module</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2469,7 +2450,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Accounting Module</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Accounting
+                                                    Module</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2482,7 +2464,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-muted flex-grow-1">Network Platform</span>
+                                                <span class="fw-semibold fs-5 text-muted flex-grow-1">Network
+                                                    Platform</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen040.svg-->
                                                 <span class="svg-icon svg-icon-1">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2496,7 +2479,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center">
-                                                <span class="fw-semibold fs-5 text-muted flex-grow-1">Unlimited Cloud Space</span>
+                                                <span class="fw-semibold fs-5 text-muted flex-grow-1">Unlimited Cloud
+                                                    Space</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen040.svg-->
                                                 <span class="svg-icon svg-icon-1">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2517,14 +2501,16 @@ License: For each use you must have a valid license purchased only from above li
                                         <!--begin::Heading-->
                                         <div class="pb-5">
                                             <h2 class="fw-bold text-dark">What’s in Startup Plan?</h2>
-                                            <div class="text-muted fw-semibold">Optimal for 1000+ team and enterpise</div>
+                                            <div class="text-muted fw-semibold">Optimal for 1000+ team and enterpise
+                                            </div>
                                         </div>
                                         <!--end::Heading-->
                                         <!--begin::Body-->
                                         <div class="pt-1">
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Up to 10 Active Users</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Up to 10 Active
+                                                    Users</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2537,7 +2523,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Up to 30 Project Integrations</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Up to 30
+                                                    Project Integrations</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2550,7 +2537,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Analytics Module</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Analytics
+                                                    Module</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2563,7 +2551,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Finance Module</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Finance
+                                                    Module</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2576,7 +2565,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Accounting Module</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Accounting
+                                                    Module</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2589,7 +2579,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Network Platform</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Network
+                                                    Platform</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2602,7 +2593,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Unlimited Cloud Space</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Unlimited Cloud
+                                                    Space</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2629,7 +2621,8 @@ License: For each use you must have a valid license purchased only from above li
                                         <div class="pt-1">
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Unlimited Users</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Unlimited
+                                                    Users</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2642,7 +2635,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Unlimited Project Integrations</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Unlimited
+                                                    Project Integrations</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2655,7 +2649,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Analytics Module</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Analytics
+                                                    Module</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2668,7 +2663,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Finance Module</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Finance
+                                                    Module</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2681,7 +2677,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Accounting Module</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Accounting
+                                                    Module</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2694,7 +2691,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center mb-7">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Network Platform</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Network
+                                                    Platform</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2707,7 +2705,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Item-->
                                             <!--begin::Item-->
                                             <div class="d-flex align-items-center">
-                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Unlimited Cloud Space</span>
+                                                <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Unlimited Cloud
+                                                    Space</span>
                                                 <!--begin::Svg Icon | path: icons/duotune/general/gen043.svg-->
                                                 <span class="svg-icon svg-icon-1 svg-icon-success">
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2944,7 +2943,8 @@ License: For each use you must have a valid license purchased only from above li
                                                         <!--begin:Info-->
                                                         <span class="d-flex flex-column">
                                                             <span class="fw-bold fs-6">Quick Online Courses</span>
-                                                            <span class="fs-7 text-muted">Creating a clear text structure is just one SEO</span>
+                                                            <span class="fs-7 text-muted">Creating a clear text
+                                                                structure is just one SEO</span>
                                                         </span>
                                                         <!--end:Info-->
                                                     </span>
@@ -2979,7 +2979,8 @@ License: For each use you must have a valid license purchased only from above li
                                                         <!--begin:Info-->
                                                         <span class="d-flex flex-column">
                                                             <span class="fw-bold fs-6">Face to Face Discussions</span>
-                                                            <span class="fs-7 text-muted">Creating a clear text structure is just one aspect</span>
+                                                            <span class="fs-7 text-muted">Creating a clear text
+                                                                structure is just one aspect</span>
                                                         </span>
                                                         <!--end:Info-->
                                                     </span>
@@ -3012,7 +3013,8 @@ License: For each use you must have a valid license purchased only from above li
                                                         <!--begin:Info-->
                                                         <span class="d-flex flex-column">
                                                             <span class="fw-bold fs-6">Full Intro Training</span>
-                                                            <span class="fs-7 text-muted">Creating a clear text structure copywriting</span>
+                                                            <span class="fs-7 text-muted">Creating a clear text
+                                                                structure copywriting</span>
                                                         </span>
                                                         <!--end:Info-->
                                                     </span>
@@ -3082,7 +3084,8 @@ License: For each use you must have a valid license purchased only from above li
                                                     <!--begin:Info-->
                                                     <span class="d-flex flex-column">
                                                         <span class="fw-bold fs-6">ReactJS</span>
-                                                        <span class="fs-7 text-muted">Robust and flexible app framework</span>
+                                                        <span class="fs-7 text-muted">Robust and flexible app
+                                                            framework</span>
                                                     </span>
                                                     <!--end:Info-->
                                                 </span>
@@ -3134,7 +3137,8 @@ License: For each use you must have a valid license purchased only from above li
                                                     <!--begin:Info-->
                                                     <span class="d-flex flex-column">
                                                         <span class="fw-bold fs-6">Vue</span>
-                                                        <span class="fs-7 text-muted">Lightweight and responsive framework</span>
+                                                        <span class="fs-7 text-muted">Lightweight and responsive
+                                                            framework</span>
                                                     </span>
                                                     <!--end:Info-->
                                                 </span>
@@ -3212,7 +3216,8 @@ License: For each use you must have a valid license purchased only from above li
                                                     <!--begin::Info-->
                                                     <span class="d-flex flex-column">
                                                         <span class="fw-bold fs-6">Firebase</span>
-                                                        <span class="fs-7 text-muted">Google based app data management</span>
+                                                        <span class="fs-7 text-muted">Google based app data
+                                                            management</span>
                                                     </span>
                                                     <!--end::Info-->
                                                 </span>
@@ -3295,7 +3300,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--begin::Col-->
                                             <div class="col-md-8 fv-row">
                                                 <!--begin::Label-->
-                                                <label class="required fs-6 fw-semibold form-label mb-2">Expiration Date</label>
+                                                <label class="required fs-6 fw-semibold form-label mb-2">Expiration
+                                                    Date</label>
                                                 <!--end::Label-->
                                                 <!--begin::Row-->
                                                 <div class="row fv-row">
@@ -3375,8 +3381,10 @@ License: For each use you must have a valid license purchased only from above li
                                         <div class="d-flex flex-stack">
                                             <!--begin::Label-->
                                             <div class="me-5">
-                                                <label class="fs-6 fw-semibold form-label">Save Card for further billing?</label>
-                                                <div class="fs-7 fw-semibold text-muted">If you need more info, please check budget planning</div>
+                                                <label class="fs-6 fw-semibold form-label">Save Card for further
+                                                    billing?</label>
+                                                <div class="fs-7 fw-semibold text-muted">If you need more info, please
+                                                    check budget planning</div>
                                             </div>
                                             <!--end::Label-->
                                             <!--begin::Switch-->
@@ -3397,7 +3405,8 @@ License: For each use you must have a valid license purchased only from above li
                                         <h1 class="fw-bold text-dark mb-3">Release!</h1>
                                         <!--end::Heading-->
                                         <!--begin::Description-->
-                                        <div class="text-muted fw-semibold fs-3">Submit your app to kickstart your project.</div>
+                                        <div class="text-muted fw-semibold fs-3">Submit your app to kickstart your
+                                            project.</div>
                                         <!--end::Description-->
                                         <!--begin::Illustration-->
                                         <div class="text-center px-4 py-15">
@@ -3419,7 +3428,8 @@ License: For each use you must have a valid license purchased only from above li
                                                     <path d="M8.56569 11.4343L12.75 7.25C13.1642 6.83579 13.1642 6.16421 12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75L5.70711 11.2929C5.31658 11.6834 5.31658 12.3166 5.70711 12.7071L11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25C13.1642 17.8358 13.1642 17.1642 12.75 16.75L8.56569 12.5657C8.25327 12.2533 8.25327 11.7467 8.56569 11.4343Z" fill="currentColor" />
                                                 </svg>
                                             </span>
-                                            <!--end::Svg Icon-->Back</button>
+                                            <!--end::Svg Icon-->Back
+                                        </button>
                                     </div>
                                     <!--end::Wrapper-->
                                     <!--begin::Wrapper-->
@@ -3433,7 +3443,8 @@ License: For each use you must have a valid license purchased only from above li
                                                         <path d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z" fill="currentColor" />
                                                     </svg>
                                                 </span>
-                                                <!--end::Svg Icon--></span>
+                                                <!--end::Svg Icon-->
+                                            </span>
                                             <span class="indicator-progress">Please wait...
                                                 <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                         </button>
@@ -3445,7 +3456,8 @@ License: For each use you must have a valid license purchased only from above li
                                                     <path d="M15.4343 12.5657L11.25 16.75C10.8358 17.1642 10.8358 17.8358 11.25 18.25C11.6642 18.6642 12.3358 18.6642 12.75 18.25L18.2929 12.7071C18.6834 12.3166 18.6834 11.6834 18.2929 11.2929L12.75 5.75C12.3358 5.33579 11.6642 5.33579 11.25 5.75C10.8358 6.16421 10.8358 6.83579 11.25 7.25L15.4343 11.4343C15.7467 11.7467 15.7467 12.2533 15.4343 12.5657Z" fill="currentColor" />
                                                 </svg>
                                             </span>
-                                            <!--end::Svg Icon--></button>
+                                            <!--end::Svg Icon-->
+                                        </button>
                                     </div>
                                     <!--end::Wrapper-->
                                 </div>
@@ -3516,8 +3528,10 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Details-->
                                     <div class="ms-6">
                                         <!--begin::Name-->
-                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Emma Smith
-                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Art Director</span></a>
+                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Emma
+                                            Smith
+                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Art
+                                                Director</span></a>
                                         <!--end::Name-->
                                         <!--begin::Email-->
                                         <div class="fw-semibold text-muted">smith@kpmg.com</div>
@@ -3550,8 +3564,10 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Details-->
                                     <div class="ms-6">
                                         <!--begin::Name-->
-                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Melody Macy
-                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Marketing Analytic</span></a>
+                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Melody
+                                            Macy
+                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Marketing
+                                                Analytic</span></a>
                                         <!--end::Name-->
                                         <!--begin::Email-->
                                         <div class="fw-semibold text-muted">melody@altbox.com</div>
@@ -3578,14 +3594,16 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="d-flex align-items-center">
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-35px symbol-circle">
-                                        <img alt="Pic" src="{{ asset('/') }}media/avatars/300-1.jpg" />
+                                        <img alt="Pic" src="{{ asset('/') }}media/avatars/face8.jpg" />
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-6">
                                         <!--begin::Name-->
-                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Max Smith
-                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Software Enginer</span></a>
+                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Max
+                                            Smith
+                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Software
+                                                Enginer</span></a>
                                         <!--end::Name-->
                                         <!--begin::Email-->
                                         <div class="fw-semibold text-muted">max@kt.com</div>
@@ -3618,8 +3636,10 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Details-->
                                     <div class="ms-6">
                                         <!--begin::Name-->
-                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Sean Bean
-                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Web Developer</span></a>
+                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Sean
+                                            Bean
+                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Web
+                                                Developer</span></a>
                                         <!--end::Name-->
                                         <!--begin::Email-->
                                         <div class="fw-semibold text-muted">sean@dellito.com</div>
@@ -3652,8 +3672,10 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Details-->
                                     <div class="ms-6">
                                         <!--begin::Name-->
-                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Brian Cox
-                                            <span class="badge badge-light fs-8 fw-semibold ms-2">UI/UX Designer</span></a>
+                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Brian
+                                            Cox
+                                            <span class="badge badge-light fs-8 fw-semibold ms-2">UI/UX
+                                                Designer</span></a>
                                         <!--end::Name-->
                                         <!--begin::Email-->
                                         <div class="fw-semibold text-muted">brian@exchange.com</div>
@@ -3686,8 +3708,10 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Details-->
                                     <div class="ms-6">
                                         <!--begin::Name-->
-                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Mikaela Collins
-                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Head Of Marketing</span></a>
+                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Mikaela
+                                            Collins
+                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Head Of
+                                                Marketing</span></a>
                                         <!--end::Name-->
                                         <!--begin::Email-->
                                         <div class="fw-semibold text-muted">mik@pex.com</div>
@@ -3720,8 +3744,10 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Details-->
                                     <div class="ms-6">
                                         <!--begin::Name-->
-                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Francis Mitcham
-                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Software Arcitect</span></a>
+                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Francis
+                                            Mitcham
+                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Software
+                                                Arcitect</span></a>
                                         <!--end::Name-->
                                         <!--begin::Email-->
                                         <div class="fw-semibold text-muted">f.mit@kpmg.com</div>
@@ -3754,8 +3780,10 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Details-->
                                     <div class="ms-6">
                                         <!--begin::Name-->
-                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Olivia Wild
-                                            <span class="badge badge-light fs-8 fw-semibold ms-2">System Admin</span></a>
+                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Olivia
+                                            Wild
+                                            <span class="badge badge-light fs-8 fw-semibold ms-2">System
+                                                Admin</span></a>
                                         <!--end::Name-->
                                         <!--begin::Email-->
                                         <div class="fw-semibold text-muted">olivia@corpmail.com</div>
@@ -3788,8 +3816,10 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Details-->
                                     <div class="ms-6">
                                         <!--begin::Name-->
-                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Neil Owen
-                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Account Manager</span></a>
+                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Neil
+                                            Owen
+                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Account
+                                                Manager</span></a>
                                         <!--end::Name-->
                                         <!--begin::Email-->
                                         <div class="fw-semibold text-muted">owen.neil@gmail.com</div>
@@ -3822,8 +3852,10 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Details-->
                                     <div class="ms-6">
                                         <!--begin::Name-->
-                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Dan Wilson
-                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Web Desinger</span></a>
+                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Dan
+                                            Wilson
+                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Web
+                                                Desinger</span></a>
                                         <!--end::Name-->
                                         <!--begin::Email-->
                                         <div class="fw-semibold text-muted">dam@consilting.com</div>
@@ -3856,8 +3888,10 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Details-->
                                     <div class="ms-6">
                                         <!--begin::Name-->
-                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Emma Bold
-                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Corporate Finance</span></a>
+                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Emma
+                                            Bold
+                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Corporate
+                                                Finance</span></a>
                                         <!--end::Name-->
                                         <!--begin::Email-->
                                         <div class="fw-semibold text-muted">emma@intenso.com</div>
@@ -3884,14 +3918,16 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="d-flex align-items-center">
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-35px symbol-circle">
-                                        <img alt="Pic" src="{{ asset('/') }}media/avatars/300-12.jpg" />
+                                        <img alt="Pic" src="{{ asset('/') }}media/avatars/face82.jpg" />
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-6">
                                         <!--begin::Name-->
-                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Ana Crown
-                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Customer Relationship</span></a>
+                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Ana
+                                            Crown
+                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Customer
+                                                Relationship</span></a>
                                         <!--end::Name-->
                                         <!--begin::Email-->
                                         <div class="fw-semibold text-muted">ana.cf@limtel.com</div>
@@ -3924,8 +3960,10 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--begin::Details-->
                                     <div class="ms-6">
                                         <!--begin::Name-->
-                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Robert Doe
-                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Marketing Executive</span></a>
+                                        <a href="#" class="d-flex align-items-center fs-5 fw-bold text-dark text-hover-primary">Robert
+                                            Doe
+                                            <span class="badge badge-light fs-8 fw-semibold ms-2">Marketing
+                                                Executive</span></a>
                                         <!--end::Name-->
                                         <!--begin::Email-->
                                         <div class="fw-semibold text-muted">robert@benko.com</div>
@@ -4086,7 +4124,7 @@ License: For each use you must have a valid license purchased only from above li
                                     <a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-35px symbol-circle me-5">
-                                            <img alt="Pic" src="{{ asset('/') }}media/avatars/300-1.jpg" />
+                                            <img alt="Pic" src="{{ asset('/') }}media/avatars/face8.jpg" />
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Info-->
@@ -4151,7 +4189,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Avatar-->
                                             <!--begin::Details-->
                                             <div class="ms-5">
-                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Emma Smith</a>
+                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Emma
+                                                    Smith</a>
                                                 <div class="fw-semibold text-muted">smith@kpmg.com</div>
                                             </div>
                                             <!--end::Details-->
@@ -4187,7 +4226,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Avatar-->
                                             <!--begin::Details-->
                                             <div class="ms-5">
-                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Melody Macy</a>
+                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Melody
+                                                    Macy</a>
                                                 <div class="fw-semibold text-muted">melody@altbox.com</div>
                                             </div>
                                             <!--end::Details-->
@@ -4218,12 +4258,13 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Checkbox-->
                                             <!--begin::Avatar-->
                                             <div class="symbol symbol-35px symbol-circle">
-                                                <img alt="Pic" src="{{ asset('/') }}media/avatars/300-1.jpg" />
+                                                <img alt="Pic" src="{{ asset('/') }}media/avatars/face8.jpg" />
                                             </div>
                                             <!--end::Avatar-->
                                             <!--begin::Details-->
                                             <div class="ms-5">
-                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Max Smith</a>
+                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Max
+                                                    Smith</a>
                                                 <div class="fw-semibold text-muted">max@kt.com</div>
                                             </div>
                                             <!--end::Details-->
@@ -4259,7 +4300,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Avatar-->
                                             <!--begin::Details-->
                                             <div class="ms-5">
-                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Sean Bean</a>
+                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Sean
+                                                    Bean</a>
                                                 <div class="fw-semibold text-muted">sean@dellito.com</div>
                                             </div>
                                             <!--end::Details-->
@@ -4295,7 +4337,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Avatar-->
                                             <!--begin::Details-->
                                             <div class="ms-5">
-                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Brian Cox</a>
+                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Brian
+                                                    Cox</a>
                                                 <div class="fw-semibold text-muted">brian@exchange.com</div>
                                             </div>
                                             <!--end::Details-->
@@ -4331,7 +4374,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Avatar-->
                                             <!--begin::Details-->
                                             <div class="ms-5">
-                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Mikaela Collins</a>
+                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Mikaela
+                                                    Collins</a>
                                                 <div class="fw-semibold text-muted">mik@pex.com</div>
                                             </div>
                                             <!--end::Details-->
@@ -4367,7 +4411,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Avatar-->
                                             <!--begin::Details-->
                                             <div class="ms-5">
-                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Francis Mitcham</a>
+                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Francis
+                                                    Mitcham</a>
                                                 <div class="fw-semibold text-muted">f.mit@kpmg.com</div>
                                             </div>
                                             <!--end::Details-->
@@ -4403,7 +4448,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Avatar-->
                                             <!--begin::Details-->
                                             <div class="ms-5">
-                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Olivia Wild</a>
+                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Olivia
+                                                    Wild</a>
                                                 <div class="fw-semibold text-muted">olivia@corpmail.com</div>
                                             </div>
                                             <!--end::Details-->
@@ -4439,7 +4485,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Avatar-->
                                             <!--begin::Details-->
                                             <div class="ms-5">
-                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Neil Owen</a>
+                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Neil
+                                                    Owen</a>
                                                 <div class="fw-semibold text-muted">owen.neil@gmail.com</div>
                                             </div>
                                             <!--end::Details-->
@@ -4475,7 +4522,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Avatar-->
                                             <!--begin::Details-->
                                             <div class="ms-5">
-                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Dan Wilson</a>
+                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Dan
+                                                    Wilson</a>
                                                 <div class="fw-semibold text-muted">dam@consilting.com</div>
                                             </div>
                                             <!--end::Details-->
@@ -4511,7 +4559,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Avatar-->
                                             <!--begin::Details-->
                                             <div class="ms-5">
-                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Emma Bold</a>
+                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Emma
+                                                    Bold</a>
                                                 <div class="fw-semibold text-muted">emma@intenso.com</div>
                                             </div>
                                             <!--end::Details-->
@@ -4542,12 +4591,13 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Checkbox-->
                                             <!--begin::Avatar-->
                                             <div class="symbol symbol-35px symbol-circle">
-                                                <img alt="Pic" src="{{ asset('/') }}media/avatars/300-12.jpg" />
+                                                <img alt="Pic" src="{{ asset('/') }}media/avatars/face82.jpg" />
                                             </div>
                                             <!--end::Avatar-->
                                             <!--begin::Details-->
                                             <div class="ms-5">
-                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ana Crown</a>
+                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ana
+                                                    Crown</a>
                                                 <div class="fw-semibold text-muted">ana.cf@limtel.com</div>
                                             </div>
                                             <!--end::Details-->
@@ -4583,7 +4633,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Avatar-->
                                             <!--begin::Details-->
                                             <div class="ms-5">
-                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Robert Doe</a>
+                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Robert
+                                                    Doe</a>
                                                 <div class="fw-semibold text-muted">robert@benko.com</div>
                                             </div>
                                             <!--end::Details-->
@@ -4614,12 +4665,13 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Checkbox-->
                                             <!--begin::Avatar-->
                                             <div class="symbol symbol-35px symbol-circle">
-                                                <img alt="Pic" src="{{ asset('/') }}media/avatars/300-13.jpg" />
+                                                <img alt="Pic" src="{{ asset('/') }}media/avatars/face83.jpg" />
                                             </div>
                                             <!--end::Avatar-->
                                             <!--begin::Details-->
                                             <div class="ms-5">
-                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">John Miller</a>
+                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">John
+                                                    Miller</a>
                                                 <div class="fw-semibold text-muted">miller@mapple.com</div>
                                             </div>
                                             <!--end::Details-->
@@ -4655,7 +4707,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Avatar-->
                                             <!--begin::Details-->
                                             <div class="ms-5">
-                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Lucy Kunic</a>
+                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Lucy
+                                                    Kunic</a>
                                                 <div class="fw-semibold text-muted">lucy.m@fentech.com</div>
                                             </div>
                                             <!--end::Details-->
@@ -4691,7 +4744,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Avatar-->
                                             <!--begin::Details-->
                                             <div class="ms-5">
-                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ethan Wilder</a>
+                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ethan
+                                                    Wilder</a>
                                                 <div class="fw-semibold text-muted">ethan@loop.com.au</div>
                                             </div>
                                             <!--end::Details-->
@@ -4727,7 +4781,8 @@ License: For each use you must have a valid license purchased only from above li
                                             <!--end::Avatar-->
                                             <!--begin::Details-->
                                             <div class="ms-5">
-                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Brian Cox</a>
+                                                <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Brian
+                                                    Cox</a>
                                                 <div class="fw-semibold text-muted">brian@exchange.com</div>
                                             </div>
                                             <!--end::Details-->
@@ -4749,7 +4804,8 @@ License: For each use you must have a valid license purchased only from above li
                                 <!--begin::Actions-->
                                 <div class="d-flex flex-center mt-15">
                                     <button type="reset" id="kt_modal_users_search_reset" data-bs-dismiss="modal" class="btn btn-active-light me-3">Cancel</button>
-                                    <button type="submit" id="kt_modal_users_search_submit" class="btn btn-primary">Add Selected Users</button>
+                                    <button type="submit" id="kt_modal_users_search_submit" class="btn btn-primary">Add
+                                        Selected Users</button>
                                 </div>
                                 <!--end::Actions-->
                             </div>
@@ -4848,7 +4904,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-5">
-                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Emma Smith</a>
+                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Emma
+                                            Smith</a>
                                         <div class="fw-semibold text-muted">smith@kpmg.com</div>
                                     </div>
                                     <!--end::Details-->
@@ -4876,7 +4933,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-5">
-                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Melody Macy</a>
+                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Melody
+                                            Macy</a>
                                         <div class="fw-semibold text-muted">melody@altbox.com</div>
                                     </div>
                                     <!--end::Details-->
@@ -4899,12 +4957,13 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="d-flex align-items-center">
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-35px symbol-circle">
-                                        <img alt="Pic" src="{{ asset('/') }}media/avatars/300-1.jpg" />
+                                        <img alt="Pic" src="{{ asset('/') }}media/avatars/face8.jpg" />
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-5">
-                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Max Smith</a>
+                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Max
+                                            Smith</a>
                                         <div class="fw-semibold text-muted">max@kt.com</div>
                                     </div>
                                     <!--end::Details-->
@@ -4932,7 +4991,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-5">
-                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Sean Bean</a>
+                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Sean
+                                            Bean</a>
                                         <div class="fw-semibold text-muted">sean@dellito.com</div>
                                     </div>
                                     <!--end::Details-->
@@ -4960,7 +5020,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-5">
-                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Brian Cox</a>
+                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Brian
+                                            Cox</a>
                                         <div class="fw-semibold text-muted">brian@exchange.com</div>
                                     </div>
                                     <!--end::Details-->
@@ -4988,7 +5049,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-5">
-                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Mikaela Collins</a>
+                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Mikaela
+                                            Collins</a>
                                         <div class="fw-semibold text-muted">mik@pex.com</div>
                                     </div>
                                     <!--end::Details-->
@@ -5016,7 +5078,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-5">
-                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Francis Mitcham</a>
+                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Francis
+                                            Mitcham</a>
                                         <div class="fw-semibold text-muted">f.mit@kpmg.com</div>
                                     </div>
                                     <!--end::Details-->
@@ -5044,7 +5107,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-5">
-                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Olivia Wild</a>
+                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Olivia
+                                            Wild</a>
                                         <div class="fw-semibold text-muted">olivia@corpmail.com</div>
                                     </div>
                                     <!--end::Details-->
@@ -5072,7 +5136,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-5">
-                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Neil Owen</a>
+                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Neil
+                                            Owen</a>
                                         <div class="fw-semibold text-muted">owen.neil@gmail.com</div>
                                     </div>
                                     <!--end::Details-->
@@ -5100,7 +5165,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-5">
-                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Dan Wilson</a>
+                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Dan
+                                            Wilson</a>
                                         <div class="fw-semibold text-muted">dam@consilting.com</div>
                                     </div>
                                     <!--end::Details-->
@@ -5128,7 +5194,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-5">
-                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Emma Bold</a>
+                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Emma
+                                            Bold</a>
                                         <div class="fw-semibold text-muted">emma@intenso.com</div>
                                     </div>
                                     <!--end::Details-->
@@ -5151,12 +5218,13 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="d-flex align-items-center">
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-35px symbol-circle">
-                                        <img alt="Pic" src="{{ asset('/') }}media/avatars/300-12.jpg" />
+                                        <img alt="Pic" src="{{ asset('/') }}media/avatars/face82.jpg" />
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-5">
-                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ana Crown</a>
+                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ana
+                                            Crown</a>
                                         <div class="fw-semibold text-muted">ana.cf@limtel.com</div>
                                     </div>
                                     <!--end::Details-->
@@ -5184,7 +5252,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-5">
-                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Robert Doe</a>
+                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Robert
+                                            Doe</a>
                                         <div class="fw-semibold text-muted">robert@benko.com</div>
                                     </div>
                                     <!--end::Details-->
@@ -5207,12 +5276,13 @@ License: For each use you must have a valid license purchased only from above li
                                 <div class="d-flex align-items-center">
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-35px symbol-circle">
-                                        <img alt="Pic" src="{{ asset('/') }}media/avatars/300-13.jpg" />
+                                        <img alt="Pic" src="{{ asset('/') }}media/avatars/face83.jpg" />
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-5">
-                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">John Miller</a>
+                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">John
+                                            Miller</a>
                                         <div class="fw-semibold text-muted">miller@mapple.com</div>
                                     </div>
                                     <!--end::Details-->
@@ -5240,7 +5310,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-5">
-                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Lucy Kunic</a>
+                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Lucy
+                                            Kunic</a>
                                         <div class="fw-semibold text-muted">lucy.m@fentech.com</div>
                                     </div>
                                     <!--end::Details-->
@@ -5268,7 +5339,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-5">
-                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ethan Wilder</a>
+                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ethan
+                                            Wilder</a>
                                         <div class="fw-semibold text-muted">ethan@loop.com.au</div>
                                     </div>
                                     <!--end::Details-->
@@ -5296,7 +5368,8 @@ License: For each use you must have a valid license purchased only from above li
                                     <!--end::Avatar-->
                                     <!--begin::Details-->
                                     <div class="ms-5">
-                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Francis Mitcham</a>
+                                        <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Francis
+                                            Mitcham</a>
                                         <div class="fw-semibold text-muted">f.mit@kpmg.com</div>
                                     </div>
                                     <!--end::Details-->
@@ -5345,6 +5418,12 @@ License: For each use you must have a valid license purchased only from above li
     <!--begin::Javascript-->
     <script>
         var hostUrl = "{{ asset('/') }}";
+        const selectOption = document.getElementById('selectVersion');
+
+        selectOption.addEventListener('change', function handleChange(event) {
+            let selectedVersion = event.target.value;
+            window.location.href = '/' + selectedVersion;
+        });
     </script>
     <!--begin::Global Javascript Bundle(used by all pages)-->
     <script src="{{ asset('/') }}plugins/global/plugins.bundle.js"></script>

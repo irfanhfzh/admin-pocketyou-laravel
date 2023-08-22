@@ -11,7 +11,8 @@ class VipManagesController extends Controller
     {
         $data = [
             "title" => "Manages",
-            "text" => "Vip Merchant"
+            "text" => "Vip Merchant",
+            "page_title" => "Vip Merchant",
         ];
 
         return view('pages.vip.manages.vip_merchant', $data);
@@ -21,7 +22,8 @@ class VipManagesController extends Controller
     {
         $data = [
             "title" => "Manages",
-            "text" => "Ads Blast"
+            "text" => "Ads Blast",
+            "page_title" => "Ads Blast",
         ];
 
         return view('pages.vip.manages.ads_blast', $data);
